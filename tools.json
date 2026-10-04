@@ -1,0 +1,463 @@
+[
+    {
+        "type": "function",
+        "function": {
+            "name": "send_telegram_message",
+            "description": "Отправляет обычное текстовое сообщение контакту в Telegram. Используй псевдонимы: любимой, маме, диме, папе, максу, сане, ване, жене",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "contact": {
+                        "type": "string",
+                        "description": "Имя контакта или псевдоним"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "Текст сообщения"
+                    }
+                },
+                "required": [
+                    "contact",
+                    "message"
+                ]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "send_telegram_voice",
+            "description": "Записывает голос пользователя с микрофона до первой длинной паузы и отправляет как полноценное ГОЛОСОВОЕ (звуковое) сообщение в Telegram. Срабатывает на фразы: 'отправь голосовое', 'наговори голосовое', 'запиши голосовое сообщение старому/маме'",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "contact_name": {
+                        "type": "string",
+                        "description": "Имя контакта или псевдоним получателя аудиосообщения"
+                    }
+                },
+                "required": [
+                    "contact_name"
+                ]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "open_application",
+            "description": "Открывает приложение или сайт. Поддерживает: ютуб, вк, гугл, почта, ватсап, телеграм, кинопоиск, ivi, rutube, блокнот, калькулятор, проводник, браузер, эксель, ворд, паинт, дискорд, стим, танки, спотифай",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "app_name": {
+                        "type": "string",
+                        "description": "Название приложения или сайта"
+                    }
+                },
+                "required": [
+                    "app_name"
+                ]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "play_music",
+            "description": "Включает музыку в Яндекс Музыке. Если указан трек - ищет его, иначе включает Мою волну",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "track": {
+                        "type": "string",
+                        "description": "Название песни или исполнителя (опционально)"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "video_play_pause",
+            "description": "Переключает состояние видео между проигрыванием и паузой. Срабатывает только на фразы: 'переключи паузу', 'старт стоп видео'",
+            "parameters": {
+                "type": "object",
+                "properties": {}
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "video_play",
+            "description": "Запускает или возобновляет видео. Срабатывает на фразы: 'продолжи видео', 'играй видео', 'включай видео', 'пуск', 'продолжай воспроизведение', 'возобнови'",
+            "parameters": {
+                "type": "object",
+                "properties": {}
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "video_pause",
+            "description": "Останавливает видео. Срабатывает на фразы: 'пауза видео', 'стоп видео', 'останови видео', 'замри видео', 'притормози видео'",
+            "parameters": {
+                "type": "object",
+                "properties": {}
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "video_forward",
+            "description": "Перематывает видео вперёд. Срабатывает на фразы: 'перемотай вперёд', 'вперёд видео', 'пропусти видео', 'пролистай', 'пропусти X секунд'",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "seconds": {
+                        "type": "integer",
+                        "description": "Количество секунд для перемотки вперёд (по умолчанию 10)"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "video_rewind",
+            "description": "Перематывает видео назад. Срабатывает на фразы: 'перемотай назад', 'назад видео', 'верни видео', 'отмотай назад', 'верни на X секунд'",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "seconds": {
+                        "type": "integer",
+                        "description": "Количество секунд для перемотки назад (по умолчанию 10)"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "video_fullscreen",
+            "description": "Разворачивает плеер на весь экран. Срабатывает на фразы: 'видео на весь экран', 'полный экран видео', 'фуллскрин видео', 'разверни видео'",
+            "parameters": {
+                "type": "object",
+                "properties": {}
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "video_exit_fullscreen",
+            "description": "Выходит из полноэкранного режима плеера. Срабатывает на фразы: 'выйти из полноэкранного', 'свернуть видео', 'убрать полный экран видео'",
+            "parameters": {
+                "type": "object",
+                "properties": {}
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "video_volume_up",
+            "description": "Прибавляет звук в плеере/браузере. Срабатывает на фразы: 'видео громче', 'прибавь звук на видео', 'сделай погромче видео'",
+            "parameters": {
+                "type": "object",
+                "properties": {}
+            }
+        }
+    },
+       {
+        "type": "function",
+        "function": {
+            "name": "video_volume_down",
+            "description": "Убавляет звук в плеере/браузере. Срабатывает на фразы: 'видео тише', 'убавь звук на видео', 'сделай потише видео'",
+            "parameters": {
+                "type": "object",
+                "properties": {}
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "video_mute",
+            "description": "Полностью отключает звук видео. Срабатывает на фразы: 'видео без звука', 'выключи звук видео', 'отключи звук на видео', 'заглуши видео'",
+            "parameters": {
+                "type": "object",
+                "properties": {}
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "video_speed_up",
+            "description": "Увеличивает скорость воспроизведения видео. Срабатывает на фразы: 'ускорь видео', 'видео быстрее', 'увеличь скорость видео'",
+            "parameters": {
+                "type": "object",
+                "properties": {}
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "video_speed_down",
+            "description": "Уменьшает скорость воспроизведения видео. Срабатывает на фразы: 'замедли видео', 'видео медленнее', 'уменьши скорость видео'",
+            "parameters": {
+                "type": "object",
+                "properties": {}
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "video_subtitles",
+            "description": "Переключает субтитры. Срабатывает на фразы: 'субтитры на видео', 'включи субтитры на видео', 'выключи субтитры на видео'",
+            "parameters": {
+                "type": "object",
+                "properties": {}
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "search_web",
+            "description": "Выполняет поисковый запрос в интернете. Срабатывает на фразы: 'найди в интернете', 'поищи в гугле', 'загугли', 'посмотри в яндексе', 'найди на ютубе'",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Поисковый запрос"
+                    },
+                    "engine": {
+                        "type": "string",
+                        "enum": [
+                            "google",
+                            "yandex",
+                            "youtube",
+                            "wikipedia",
+                            "kinopoisk"
+                        ],
+                        "description": "Поисковая система. По умолчанию google"
+                    }
+                },
+                "required": [
+                    "query"
+                ]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "add_reminder",
+            "description": "Создает напоминание или заметку. Срабатывает на: 'напомни мне', 'запомни что', 'не забудь записать', 'запиши напоминание', 'скажи мне вспомнить через'. Распознаёт время: 'завтра в 10 утра', 'через 5 минут'.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "type": "string",
+                        "description": "Текст напоминания или заметки"
+                    },
+                    "time_str": {
+                        "type": "string",
+                        "description": "Время для напоминания (опционально)"
+                    }
+                },
+                "required": [
+                    "text"
+                ]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "get_reminders",
+            "description": "Показывает сохраненные активные напоминания. Срабатывает на фразы: 'покажи напоминания', 'что я записал', 'список моих заметок'",
+            "parameters": {
+                "type": "object",
+                "properties": {}
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "clear_reminders",
+            "description": "Удаляет все напоминания. Срабатывает на фразы: 'удалить все напоминания', 'очисти мои напоминания'",
+            "parameters": {
+                "type": "object",
+                "properties": {}
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "discord_toggle_mute",
+            "description": "Переключает состояние ТОЛЬКО микрофона в Discord. Срабатывает на фразы: 'отключи микрофон в дискорде', 'включи микрофон в дискорде', 'заглуши микрофон в дс', 'микрофон в дискорде'",
+            "parameters": {
+                "type": "object",
+                "properties": {}
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "discord_toggle_deafen",
+            "description": "Переключает состояние ТОЛЬКО звука (наушников) в Discord. Срабатывает на фразы: 'отключи звук в дискорде', 'включи наушники в дискорде', 'звук в дс'",
+            "parameters": {
+                "type": "object",
+                "properties": {}
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "discord_mute_all",
+            "description": "Полностью отключает ВСЁ (и микрофон, и звук одновременно) в Discord. Срабатывает на фразы: 'выключи микрофон и звук в дискорде', 'заглуши всё в дс', 'полная тишина в дискорде', 'выруби дискорд полностью'",
+            "parameters": {
+                "type": "object",
+                "properties": {}
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "discord_unmute_all",
+            "description": "Включает обратно ВСЁ (и микрофон, и звук вместе) в Discord. Срабатывает на фразы: 'включи микрофон и звук в дискорде', 'разреши всё в дс', 'включи дискорд обратно'",
+            "parameters": {
+                "type": "object",
+                "properties": {}
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "get_time",
+            "description": "Сообщает точное текущее время"
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "get_date",
+            "description": "Сообщает сегодняшнюю дату, день недели, месяц или год"
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "search_wikipedia",
+            "description": "Ищет информацию и статьи в Википедии. Срабатывает на: 'найди в википедии', 'что такое', 'кто такой'",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Объект или термин для поиска"
+                    }
+                },
+                "required": [
+                    "query"
+                ]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "take_screenshot",
+            "description": "Делает снимок экрана. Срабатывает на: 'сделай скриншот', 'сфоткай экран', 'сделай скрин'"
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "tell_joke",
+            "description": "Рассказывает шутку, анекдот или юмористическую историю"
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "control_volume",
+            "description": "Управляет общей громкостью всей операционной системы Windows. Срабатывает на фразы: 'компьютер громче', 'сделай пк тише', 'выключи звук на компьютере'",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "direction": {
+                        "type": "string",
+                        "enum": [
+                            "громче",
+                            "тише",
+                            "выключить звук"
+                        ],
+                        "description": "Действие с системной громкостью"
+                    }
+                },
+                "required": [
+                    "direction"
+                ]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "system_control",
+            "description": "Управление питанием компьютера: выключение ПК, перезагрузка системы, блокировка экрана Windows",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "action": {
+                        "type": "string",
+                        "enum": [
+                            "выключить",
+                            "перезагрузить",
+                            "заблокировать"
+                        ],
+                        "description": "Команда управления питанием"
+                    }
+                },
+                "required": [
+                    "action"
+                ]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "get_weather",
+            "description": "Узнаёт текущую погоду и температуру в указанном городе. Если город не назван — Минск",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "city": {
+                        "type": "string",
+                        "description": "Название города"
+                    }
+                }
+            }
+        }
+    }
+]
